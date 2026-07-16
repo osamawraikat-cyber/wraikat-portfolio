@@ -21,12 +21,13 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Dr. Osama Alwreikat | Dermatology Specialist | د. أسامة الوريكات",
-  description: "Dermatology specialist in Amman, Jordan focusing on acne, hair disorders, vitiligo, psoriasis, and dermoscopy-based diagnosis. د. أسامة الوريكات - أخصائي أمراض جلدية وتجميل",
+  title: "د. أسامة الوريكات | طبيب جلدية وتناسلية وليزر في عمان الأردن | Dr. Osama Alwreikat",
+  description: "د. أسامة الوريكات طبيب جلدية وتناسلية وليزر في الأردن، خريج أكاديمية غولهان العسكرية (GATA) في أنقرة. متخصص في زراعة الخلايا الصبغية للبهاق وعلاج ندب حب الشباب.",
   keywords: [
-    "اسامة الوريكات", "الدكتور اسامة الوريكات", "أسامة الوريكات",
-    "dr osama alwreikat", "dr osama wraikat", "dermatologist amman",
-    "dermatologist jordan", "dermoscopy jordan", "OSara Clinics"
+    "اسامة الوريكات", "طبيب جلدية عمان", "دكتور جلدية ابو نصير", "زراعة الخلايا الصبغية للبهاق",
+    "علاج البهاق الاردن", "علاج ندب حب الشباب عمان", "تقطيع الندبات عمان", "حقن البوتوكس عمان",
+    "الخدمات الطبية الملكية", "أكاديمية غولهان العسكرية", "Dr Osama Alwreikat", "Dr Osama Wraikat",
+    "dermatologist amman", "vitiligo surgery jordan", "melanocyte transplant jordan", "GATA medical graduate"
   ],
   icons: {
     icon: "/favicon.ico",

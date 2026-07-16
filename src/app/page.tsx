@@ -4,108 +4,126 @@ import React, { useState, useEffect } from "react";
 
 const translations = {
   en: {
-    navAbout: "About",
+    navAbout: "Biography",
     navProjects: "DermOSCE",
     navBlog: "Blog",
     navContact: "Contact",
-    btnBook: "Book Consultation",
-    badge: "Expertise in Modern Dermatology",
+    btnBook: "Contact WhatsApp",
+    badge: "Royal Medical Services of Jordan",
     heroTitle1: "Dr. Osama Alwreikat",
-    heroTitle2: "Dermatology Specialist",
-    heroDesc: "Pioneering clinical excellence and advanced diagnostics in dermatology. Specializing in dermoscopy, surgical interventions, and complex skin disorders.",
-    interests: ["Clinical Dermatology", "Dermoscopy", "Hair Disorders", "Vitiligo"],
-    aboutTitle: "A Dedication to",
-    aboutTitleAccent: "Clinical Excellence",
-    aboutDesc: "With years of dedicated practice in Amman, Dr. Osama Alwreikat combines academic rigor with a patient-centric approach. His work focus is not just on treatment, but on the profound understanding of dermatological pathology through advanced diagnostic tools.",
-    cardDermoscopyTitle: "Dermoscopy",
-    cardDermoscopyDesc: "Advanced skin cancer screening, moles, and nevus monitoring.",
-    cardSurgicalTitle: "Surgical Dermatology",
-    cardSurgicalDesc: "Precision procedures for skin lesions, biopsy assessments, and aesthetic interventions.",
-    cardVitiligoTitle: "Vitiligo Management",
-    cardVitiligoDesc: "Comprehensive clinical evaluation and advanced repigmentation protocols.",
-    cardTrichologyTitle: "Trichology",
-    cardTrichologyDesc: "Specialized clinical care for complex hair and scalp disorders.",
-    projectsSubtitle: "Innovative Tools",
+    heroTitle2: "Dermatologist & Venereologist",
+    heroDesc: "Dermatology and venereology doctor serving in the Royal Medical Services. Graduated from Gülhane Military Medical Academy (GATA / SBU) in Ankara, Turkey. Fluent in Arabic, English, and Turkish.",
+    interests: ["Dermatology", "Venereology", "Laser", "Vitiligo Surgery"],
+    aboutTitle: "Academic & Clinical",
+    aboutTitleAccent: "Background",
+    aboutDesc: "Dr. Osama Alwreikat (Osama Wraikat) was recruited as a military medical officer in 2010 at age 18, starting his medical training in the same year. He completed his medical education at the historic Gülhane Military Medical Academy (GATA, now SBU) in Ankara, Turkey. Today, he is a practicing dermatologist within the Royal Jordanian Medical Services. Fluent in Arabic, English, and Turkish, his professional interest centers on advanced clinical diagnostics, medical education, and specialized dermatologic surgery.",
+    
+    // Core Procedures & Skills
+    skillsHeader: "Clinical Expertise & Advanced Procedures",
+    cardDermoscopyTitle: "Vitiligo Surgery (NCEMT)",
+    cardDermoscopyDesc: "Extensive experience with advanced Non-Cultured Melanocyte-Keratinocyte Transplant (NCEMT) and mini-grafting techniques for stable vitiligo.",
+    cardSurgicalTitle: "Acne Scar Revision & Subcision",
+    cardSurgicalDesc: "Specialized in subcision techniques, scar revisions, microneedling, and chemical peels to treat deep acne scarring.",
+    cardVitiligoTitle: "Aesthetic Injectables",
+    cardVitiligoDesc: "Professional application of botulinum toxin (Botox) for facial wrinkles, aesthetic modification, and hyperhidrosis.",
+    cardTrichologyTitle: "Clinical Dermatology & Laser",
+    cardTrichologyDesc: "Comprehensive diagnosis of hair loss, venereology conditions, and precise laser dermatology treatments.",
+    
+    // DermOSCE
+    projectsSubtitle: "Educational Contributions",
     projectsTitle: "DermOSCE Platform",
-    projectsDesc: "DermOSCE (dermosce.wraikat.com) is an interactive, clinical image-based learning platform. Designed specifically for dermatology students and practitioners to refine diagnostic skills through curated case studies and real-time feedback.",
+    projectsDesc: "DermOSCE (dermosce.wraikat.com) is an interactive, clinical image-based learning platform. Developed for medical students and residency candidates preparing for dermatology board exams to refine diagnostic skills through case studies.",
     btnExplore: "Explore Platform",
     freeTag: "Free for practitioners",
-    blogSubtitle: "Latest Publications",
-    blogTitle: "Insights in Dermatology",
+    
+    // Blog
+    blogSubtitle: "Latest Insights",
+    blogTitle: "Dermatology Education",
     btnViewAll: "View All Articles",
-    blog1Category: "Trichology",
-    blog1Read: "5 min read",
-    blog1Title: "Causes of Hair Loss in Young Adults",
-    blog1Desc: "Exploring the multifactorial nature of early-onset alopecia, from genetic predispositions to environmental triggers and stress factors.",
-    blog2Category: "Dermoscopy",
-    blog2Read: "8 min read",
-    blog2Title: "When to Worry About a Changing Mole",
-    blog2Desc: "A clinical guide to the ABCDE rule and why professional dermoscopy screening is essential for early melanoma detection.",
-    contactTitle: "Experience",
-    contactTitleAccent: "Premium Care",
-    contactDesc: "Visit our state-of-the-art clinic in Abu Nusair, Amman for a comprehensive dermatological evaluation. Your journey to skin health begins here.",
-    clinicLocation: "Clinic Location",
+    blog1Category: "Vitiligo Surgery",
+    blog1Read: "6 min read",
+    blog1Title: "Understanding Melanocyte Transplantation",
+    blog1Desc: "An overview of non-cultured melanocyte transplant (NCEMT) as an advanced surgical option for stable vitiligo patches.",
+    blog2Category: "Acne Scars",
+    blog2Read: "5 min read",
+    blog2Title: "Subcision & Scar Revision Protocols",
+    blog2Desc: "How combining subcision, chemical peels, and micrografting achieves optimal results for deep dermatological scars.",
+    
+    // Contact
+    contactTitle: "Professional",
+    contactTitleAccent: "Inquiries",
+    contactDesc: "This portfolio is a public professional hub for verification, academic networking, and clinical information. For consultations, inquiries, or patient scheduling in Abu Nusair, Amman, feel free to reach out directly.",
+    clinicLocation: "Practice Location",
     clinicAddress: "Abu Nusair, Amman, Jordan",
     workingHours: "Working Hours",
     workingHoursVal: "Sat – Thu: 10:00 AM – 6:00 PM",
-    btnWhatsApp: "Book via WhatsApp",
-    footerDesc: "Specialist Dermatologist dedicated to clinical precision and advanced patient care through education and diagnostic innovation.",
+    btnWhatsApp: "Send Message via WhatsApp",
+    footerDesc: "Dermatologist and medical officer dedicated to clinical precision, medical education, and specialized surgical dermatology.",
     footerNav: "Navigation",
-    footerLegal: "Legal",
-    footerNews: "Newsletter",
-    footerCopyright: "© 2026 OSara Clinics. All rights reserved.",
+    footerLegal: "Verification",
+    footerNews: "Stay Updated",
+    footerCopyright: "© 2026 Dr. Osama Alwreikat. All rights reserved.",
   },
   ar: {
-    navAbout: "حول الدكتور",
+    navAbout: "السيرة المهنية",
     navProjects: "منصة DermOSCE",
     navBlog: "المدونة الطبية",
-    navContact: "اتصل بنا",
-    btnBook: "حجز استشارة",
-    badge: "تميز سريري في طب الجلدية الحديث",
+    navContact: "التواصل",
+    btnBook: "تواصل واتساب",
+    badge: "منتسب للخدمات الطبية الملكية الأردنية",
     heroTitle1: "د. أسامة الوريكات",
-    heroTitle2: "أخصائي أمراض جلدية وتجميل",
-    heroDesc: "ريادة في التميز السريري والتشخيص المتقدم في طب الجلدية. متخصص في فحص الجلد الدقيق (الديرموسكوبي)، الإجراءات الجراحية الجلدية، وعلاج الحالات الجلدية المعقدة.",
-    interests: ["الأمراض الجلدية السريرية", "فحص الجلد (الديرموسكوب)", "تساقط الشعر وأمراضه", "علاج البهاق"],
-    aboutTitle: "التزام راسخ بـ",
-    aboutTitleAccent: "التميز السريري",
-    aboutDesc: "خلال سنوات من العمل الطبي الدؤوب في عمان، يجمع الدكتور أسامة الوريكات بين البحث الأكاديمي والرعاية المرتكزة على المريض. يتركز اهتمامنا على التشخيص الدقيق والعلاجات القائمة على الأدلة العلمية.",
-    cardDermoscopyTitle: "فحص الشامات والجلد",
-    cardDermoscopyDesc: "فحص متقدم للكشف المبكر عن الأورام الجلدية ومراقبة الشامات بالديرموسكوب.",
-    cardSurgicalTitle: "جراحة الجلد الصغرى",
-    cardSurgicalDesc: "إزالة الآفات الجلدية الحميدة والمشتبه بها بدقة متناهية وفحص عينات الجلد.",
-    cardVitiligoTitle: "علاج البهاق المتقدم",
-    cardVitiligoDesc: "بروتوكولات علاجية حديثة مصممة لتحفيز خلايا الجلد الصبغية واستعادة لونها.",
-    cardTrichologyTitle: "طب أمراض الشعر",
-    cardTrichologyDesc: "عناية متخصصة بحالات تساقط الشعر المختلفة وثعلبة الرأس للذكور والإناث.",
-    projectsSubtitle: "أدوات تعليمية مبتكرة",
+    heroTitle2: "طبيب جلدية وتناسلية وليزر",
+    heroDesc: "طبيب ممارس للأمراض الجلدية والتناسلية والليزر في الخدمات الطبية الملكية. خريج أكاديمية غولهان العسكرية (GATA) في أنقرة، تركيا. يتحدث العربية، الإنجليزية، والتركية.",
+    interests: ["أمراض جلدية", "أمراض تناسلية", "علاج بالليزر", "جراحة البهاق"],
+    aboutTitle: "الخلفية الأكاديمية",
+    aboutTitleAccent: "والسريرية",
+    aboutDesc: "تم تجنيد الدكتور أسامة الوريكات (أسامة وريكات) كضابط طبيب مجند في الخدمات الطبية الملكية في عام 2010 في سن 18 عاماً، وبدأ دراسته الطبية في نفس العام. حصل على درجة الطب من أكاديمية غولهان الطبية العسكرية العريقة (GATA - وحالياً جامعة العلوم الصحية SBU) في أنقرة، تركيا. وهو طبيب ممارس حالي للأمراض الجلدية في الخدمات الطبية الملكية الأردنية. يتحدث العربية والإنجليزية والتركية بطلاقة، ويتركز اهتمامه المهني على التشخيص السريري المتقدم، التعليم الطبي، وجراحة الجلد المتخصصة.",
+    
+    // Core Procedures & Skills
+    skillsHeader: "الخبرات السريرية والإجراءات الجراحية المتخصصة",
+    cardDermoscopyTitle: "جراحة البهاق (زراعة الخلايا الصبغية)",
+    cardDermoscopyDesc: "خبرة واسعة في عمليات زراعة الخلايا الصبغية غير المستزرعة (NCEMT) وزراعة الطعوم المصغرة (Mini-grafting) للبهاق المستقر.",
+    cardSurgicalTitle: "علاج ندبات حب الشباب وتقطيع الألياف",
+    cardSurgicalDesc: "متخصص في تقنيات تقطيع الألياف تحت الجلد (Subcision)، وتعديل الندبات الجراحية، والتقشير الكيميائي لتحسين مظهر الندبات العميقة.",
+    cardVitiligoTitle: "الإجراءات التجميلية والعلاجية (البوتوكس)",
+    cardVitiligoDesc: "حقن البوتوكس (Botox) الطبي لعلاج التجاعيد التعبيرية، الابتسامة اللثوية، وفرط التعرق الموضعي للإبطين واليدين.",
+    cardTrichologyTitle: "طب الجلدية العام والليزر",
+    cardTrichologyDesc: "تشخيص وعلاج تساقط الشعر، الثعلبة، الأمراض التناسلية، واستخدام تقنيات الليزر الطبي في علاج المشاكل الجلدية المختلفة.",
+    
+    // DermOSCE
+    projectsSubtitle: "التعليم الطبي والتدريب",
     projectsTitle: "منصة DermOSCE",
-    projectsDesc: "منصة DermOSCE (dermosce.wraikat.com) هي أداة تعليمية تفاعلية مصممة خصيصاً لأطباء الامتياز والإقامة لتدريب مهارات التشخيص من خلال دراسة الحالات السريرية الحقيقية.",
+    projectsDesc: "منصة DermOSCE (dermosce.wraikat.com) هي أداة تعليمية تفاعلية مصممة لطلاب الكليات الطبية وأطباء الامتياز والإقامة لتدريب وتطوير مهارات التشخيص الصوري للامتحانات السريرية والبورد.",
     btnExplore: "استكشف المنصة",
     freeTag: "متاحة مجاناً للكوادر الطبية",
-    blogSubtitle: "آخر المنشورات",
-    blogTitle: "رؤى في طب الجلدية",
-    btnViewAll: "عرض جميع المقالات",
-    blog1Category: "طب أمراض الشعر",
-    blog1Read: "قراءة 5 دقائق",
-    blog1Title: "أسباب تساقط الشعر عند الشباب",
-    blog1Desc: "استكشاف العوامل المتعددة المسببة لتساقط الشعر المبكر، من الجينات الوراثية إلى العوامل البيئية والتوتر.",
-    blog2Category: "فحص الجلد بالديرموسكوب",
-    blog2Read: "قراءة 8 دقائق",
-    blog2Title: "متى يجب القلق بشأن تغير الشامة؟",
-    blog2Desc: "دليل طبي مبسط لقاعدة ABCDE وأهمية الفحص الدوري بالديرموسكوب للكشف المبكر عن سرطان الجلد.",
-    contactTitle: "رعاية طبية",
-    contactTitleAccent: "بمعايير ممتازة",
-    contactDesc: "تفضل بزيارتنا في عيادة أوسارا (OSara Clinics) بأبو نصير، عمان لإجراء تقييم شامل وصحي لبشرتك وشعرك.",
-    clinicLocation: "موقع العيادة",
+    
+    // Blog
+    blogSubtitle: "منشورات تعليمية",
+    blogTitle: "ثقافة طب الجلدية",
+    btnViewAll: "عرض كافة المقالات",
+    blog1Category: "جراحة البهاق",
+    blog1Read: "قراءة 6 دقائق",
+    blog1Title: "دليل زراعة الخلايا الصبغية (NCEMT)",
+    blog1Desc: "نبذة علمية مبسطة حول عملية زراعة الخلايا الصبغية كحل جراحي فعال لعلاج بقع البهاق الثابتة والمستقرة.",
+    blog2Category: "ندبات حب الشباب",
+    blog2Read: "قراءة 5 دقائق",
+    blog2Title: "تقطيع الألياف (Subcision) والتقشير",
+    blog2Desc: "كيف يساعد دمج تقطيع الألياف مع التقشير الكيميائي في إعادة بناء الجلد واستعادة نضارته وعلاج الندبات العميقة.",
+    
+    // Contact
+    contactTitle: "التواصل",
+    contactTitleAccent: "المهني",
+    contactDesc: "يعتبر هذا الموقع بمثابة معرض سيرة ذاتية مهني وأكاديمي عام للتواصل الطبي والتحقق من المؤهلات. للاستفسارات العلمية أو لحجز موعد استشارة طبية في أبو نصير، عمان، يرجى التواصل مباشرة.",
+    clinicLocation: "عيادة المعاينة",
     clinicAddress: "عمان، أبو نصير، حي الأمانة",
     workingHours: "ساعات العمل",
     workingHoursVal: "السبت – الخميس: 10:00 صباحاً – 6:00 مساءً",
-    btnWhatsApp: "📲 احجز موعدك عبر واتساب",
-    footerDesc: "أخصائي أمراض جلدية وتجميل مكرس للتشخيص السريري الدقيق ورعاية المرضى عبر التعليم والابتكار الطبي.",
+    btnWhatsApp: "📲 تواصل أو احجز عبر واتساب",
+    footerDesc: "طبيب جلدية وضابط طبيب مكرس للتشخيص السريري الدقيق ورعاية المرضى عبر التعليم والابتكار الطبي والجراحي.",
     footerNav: "أقسام الموقع",
-    footerLegal: "شروط الاستخدام",
-    footerNews: "النشرة البريدية",
-    footerCopyright: "© 2026 عيادات أوسارا. جميع الحقوق محفوظة.",
+    footerLegal: "التحقق المهني",
+    footerNews: "النشرة الطبية",
+    footerCopyright: "© 2026 الدكتور أسامة الوريكات. جميع الحقوق محفوظة.",
   }
 };
 
@@ -127,7 +145,7 @@ export default function PortfolioPage() {
         <nav className="flex justify-between items-center px-6 md:px-12 py-4 w-full max-w-7xl mx-auto">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl overflow-hidden border border-white/10">
-              <img src="/favicon.ico" alt="Wraikat Logo" className="w-full h-full object-cover" />
+              <img src="/favicon.ico" alt="Dr. Osama Wraikat Logo" className="w-full h-full object-cover" />
             </div>
             <div className="font-serif text-xl font-bold tracking-tight text-white">
               {lang === "ar" ? (
@@ -183,7 +201,7 @@ export default function PortfolioPage() {
       <main className="pt-20">
         
         {/* Hero Section */}
-        <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+        <section className="relative min-h-[85vh] flex items-center overflow-hidden">
           <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_50%_40%,rgba(13,92,96,0.15),transparent_50%)]"></div>
           <div className="relative z-10 px-6 md:px-12 max-w-7xl mx-auto w-full py-16">
             <div className="grid grid-cols-12 gap-8 items-center">
@@ -191,11 +209,11 @@ export default function PortfolioPage() {
                 <span className="inline-block px-4 py-1.5 mb-6 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-semibold uppercase tracking-widest">
                   {t.badge}
                 </span>
-                <h1 className="font-serif text-5xl md:text-7xl font-bold mb-6 text-white leading-tight">
+                <h1 className="font-serif text-4xl md:text-6xl font-bold mb-6 text-white leading-tight">
                   {t.heroTitle1} <br/>
-                  <span className="text-secondary italic font-normal text-4xl md:text-5xl">{t.heroTitle2}</span>
+                  <span className="text-secondary italic font-normal text-3xl md:text-4xl">{t.heroTitle2}</span>
                 </h1>
-                <p className="text-lg text-on-surface-variant max-w-xl mb-8 leading-relaxed">
+                <p className="text-md md:text-lg text-on-surface-variant max-w-xl mb-8 leading-relaxed">
                   {t.heroDesc}
                 </p>
                 <div className="flex flex-wrap gap-4 md:gap-6 text-secondary text-xs font-semibold tracking-wider uppercase">
@@ -212,7 +230,7 @@ export default function PortfolioPage() {
           <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-background to-transparent"></div>
         </section>
 
-        {/* About Section */}
+        {/* Biography Section */}
         <section className="py-24 px-6 md:px-12 max-w-7xl mx-auto" id="about">
           <div className="grid grid-cols-12 gap-8 md:gap-12 items-center">
             
@@ -233,29 +251,67 @@ export default function PortfolioPage() {
                 {t.aboutTitle} <br/>
                 <span className="text-secondary">{t.aboutTitleAccent}</span>
               </h2>
-              <p className="text-md text-on-surface-variant mb-8 leading-relaxed">
+              <p className="text-md text-on-surface-variant mb-6 leading-relaxed">
                 {t.aboutDesc}
               </p>
               
-              {/* Specialized Cards Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="p-5 rounded-2xl bg-surface-container border border-outline-variant/10 hover:border-primary/30 transition-all duration-300">
-                  <div className="text-primary text-xl font-bold mb-2">✦ {t.cardDermoscopyTitle}</div>
-                  <p className="text-on-surface-variant text-xs leading-relaxed">{t.cardDermoscopyDesc}</p>
-                </div>
-                <div className="p-5 rounded-2xl bg-surface-container border border-outline-variant/10 hover:border-primary/30 transition-all duration-300">
-                  <div className="text-primary text-xl font-bold mb-2">✦ {t.cardSurgicalTitle}</div>
-                  <p className="text-on-surface-variant text-xs leading-relaxed">{t.cardSurgicalDesc}</p>
-                </div>
-                <div className="p-5 rounded-2xl bg-surface-container border border-outline-variant/10 hover:border-primary/30 transition-all duration-300">
-                  <div className="text-primary text-xl font-bold mb-2">✦ {t.cardVitiligoTitle}</div>
-                  <p className="text-on-surface-variant text-xs leading-relaxed">{t.cardVitiligoDesc}</p>
-                </div>
-                <div className="p-5 rounded-2xl bg-surface-container border border-outline-variant/10 hover:border-primary/30 transition-all duration-300">
-                  <div className="text-primary text-xl font-bold mb-2">✦ {t.cardTrichologyTitle}</div>
-                  <p className="text-on-surface-variant text-xs leading-relaxed">{t.cardTrichologyDesc}</p>
-                </div>
+              {/* Language Tags & Education Badges */}
+              <div className="flex flex-wrap gap-3 mb-8">
+                <span className="bg-surface-container border border-outline-variant/10 text-white px-3.5 py-1.5 rounded-lg text-xs font-semibold">
+                  🇹🇷 {lang === "ar" ? "خريج أكاديمية غولهان العسكرية (أنقرة)" : "Gülhane Military Academy Graduate (Ankara)"}
+                </span>
+                <span className="bg-surface-container border border-outline-variant/10 text-white px-3.5 py-1.5 rounded-lg text-xs font-semibold">
+                  🇸🇦 {lang === "ar" ? "يتحدث العربية" : "Speaks Arabic"}
+                </span>
+                <span className="bg-surface-container border border-outline-variant/10 text-white px-3.5 py-1.5 rounded-lg text-xs font-semibold">
+                  🇬🇧 {lang === "ar" ? "يتحدث الإنجليزية" : "Speaks English"}
+                </span>
+                <span className="bg-surface-container border border-outline-variant/10 text-white px-3.5 py-1.5 rounded-lg text-xs font-semibold">
+                  🇹🇷 {lang === "ar" ? "يتحدث التركية" : "Speaks Turkish"}
+                </span>
               </div>
+            </div>
+
+          </div>
+        </section>
+
+        {/* Specialized Skills Grid Section */}
+        <section className="py-20 px-6 md:px-12 max-w-7xl mx-auto border-t border-outline-variant/10">
+          <div className="text-center mb-16">
+            <h2 className="font-serif text-3xl font-bold text-white tracking-tight">{t.skillsHeader}</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+            <div className="p-6 rounded-3xl bg-surface-container border border-outline-variant/10 hover:border-primary/30 transition-all duration-300 shadow-md">
+              <div className="flex items-center gap-3 mb-4">
+                <span className="text-primary text-2xl">🧬</span>
+                <h3 className="text-white text-lg font-bold font-serif">{t.cardDermoscopyTitle}</h3>
+              </div>
+              <p className="text-on-surface-variant text-sm leading-relaxed">{t.cardDermoscopyDesc}</p>
+            </div>
+
+            <div className="p-6 rounded-3xl bg-surface-container border border-outline-variant/10 hover:border-primary/30 transition-all duration-300 shadow-md">
+              <div className="flex items-center gap-3 mb-4">
+                <span className="text-primary text-2xl">🩹</span>
+                <h3 className="text-white text-lg font-bold font-serif">{t.cardSurgicalTitle}</h3>
+              </div>
+              <p className="text-on-surface-variant text-sm leading-relaxed">{t.cardSurgicalDesc}</p>
+            </div>
+
+            <div className="p-6 rounded-3xl bg-surface-container border border-outline-variant/10 hover:border-primary/30 transition-all duration-300 shadow-md">
+              <div className="flex items-center gap-3 mb-4">
+                <span className="text-primary text-2xl">💉</span>
+                <h3 className="text-white text-lg font-bold font-serif">{t.cardVitiligoTitle}</h3>
+              </div>
+              <p className="text-on-surface-variant text-sm leading-relaxed">{t.cardVitiligoDesc}</p>
+            </div>
+
+            <div className="p-6 rounded-3xl bg-surface-container border border-outline-variant/10 hover:border-primary/30 transition-all duration-300 shadow-md">
+              <div className="flex items-center gap-3 mb-4">
+                <span className="text-primary text-2xl">⚡</span>
+                <h3 className="text-white text-lg font-bold font-serif">{t.cardTrichologyTitle}</h3>
+              </div>
+              <p className="text-on-surface-variant text-sm leading-relaxed">{t.cardTrichologyDesc}</p>
             </div>
 
           </div>
@@ -274,7 +330,7 @@ export default function PortfolioPage() {
                 <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-6">
                   <span className="text-primary text-xl">🎓</span>
                 </div>
-                <h3 className="font-serif text-2xl text-white mb-4 leading-snug">{t.projectsTitle} — Interactive Learning</h3>
+                <h3 className="font-serif text-2xl text-white mb-4 leading-snug">{t.projectsTitle} — Exam Prep</h3>
                 <p className="text-on-surface-variant text-sm mb-8 leading-relaxed">
                   {t.projectsDesc}
                 </p>
@@ -319,7 +375,7 @@ export default function PortfolioPage() {
                 <img 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                   src="/skin_abstract.png" 
-                  alt="Trichology Blog Graphic"
+                  alt="Vitiligo Melanocyte Transplantation Visual"
                 />
               </div>
               <div className="p-6">
@@ -343,7 +399,7 @@ export default function PortfolioPage() {
                 <img 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                   src="/mole_closeup.png" 
-                  alt="Dermoscopy Blog Graphic"
+                  alt="Dermoscopy Mole Checking Visual"
                 />
               </div>
               <div className="p-6">
@@ -411,7 +467,7 @@ export default function PortfolioPage() {
                 <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent pointer-events-none"></div>
                 <img 
                   src="/skin_abstract.png" 
-                  alt="OSara Clinics Visual" 
+                  alt="Dr. Osama Alwreikat Clinical Visual" 
                   className="w-full h-full object-cover" 
                 />
               </div>
