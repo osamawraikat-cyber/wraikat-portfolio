@@ -1,0 +1,34 @@
+[
+  {
+    "slug": "subcision-and-scar-revision-protocols",
+    "title_en": "Subcision & Scar Revision Protocols",
+    "title_ar": "تقطيع الألياف (Subcision) والتقشير",
+    "title_tr": "Subsizyon ve Yara İzi Protokolleri",
+    "category_en": "Acne Scars",
+    "category_ar": "ندبات حب الشباب",
+    "category_tr": "Akne İzleri",
+    "readTime_en": "5 min read",
+    "readTime_ar": "قراءة 5 دقائق",
+    "readTime_tr": "5 dk okuma",
+    "description_en": "How combining subcision, chemical peels, and micrografting achieves optimal results for deep dermatological scars.",
+    "description_ar": "كيف يساعد دمج تقطيع الألياف مع التقشير الكيميائي في إعادة بناء الجلد واستعادة نضارته وعلاج الندبات العميقة.",
+    "description_tr": "Derin yara izlerinde subsizyon ve kimyasal peeling kombinasyonunun klinik sonuçları.",
+    "body": "Subcision is a minimally invasive surgical procedure used to treat depressed acne scars and wrinkles. By releasing the fibrous bands that pull the skin downward, we allow the skin to lift and trigger new collagen production, often combined with chemical peels for optimal texture."
+  },
+  {
+    "slug": "understanding-melanocyte-transplantation",
+    "title_en": "Understanding Melanocyte Transplantation",
+    "title_ar": "دليل زراعة الخلايا الصبغية (NCMT)",
+    "title_tr": "Melanosit Transplantasyonu Nedir?",
+    "category_en": "Vitiligo Surgery",
+    "category_ar": "جراحة البهاق",
+    "category_tr": "Vitiligo Cerrahisi",
+    "readTime_en": "6 min read",
+    "readTime_ar": "قراءة 6 دقائق",
+    "readTime_tr": "6 dk okuma",
+    "description_en": "An overview of non-cultured melanocyte transplant (NCMT) as an advanced surgical option for stable vitiligo patches.",
+    "description_ar": "نبذة علمية مبسطة حول عملية زراعة الخلايا الصبغية كحل جراحي فعال لعلاج بقع البهاق الثابتة والمستقرة.",
+    "description_tr": "Stabil vitiligo yamalarında melanosit transplantasyonu (NCMT) cerrahi tedavi seçeneğine genel bakış.",
+    "body": "Non-cultured melanocyte-keratinocyte transplant (NCMT) is a revolutionary surgical technique used to treat stable vitiligo. By harvesting healthy skin cells from a donor area, separating the melanocytes, and transplanting them onto depigmented areas, we can restore natural pigmentation with high success rates."
+  }
+]

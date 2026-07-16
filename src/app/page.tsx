@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import postsData from "@/data/posts.json";
 
 const translations = {
   en: {
@@ -584,55 +585,40 @@ export default function PortfolioPage() {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            
-            {/* Article 1 */}
-            <article className="group cursor-pointer bg-surface-container/50 border border-outline-variant/10 rounded-2xl overflow-hidden hover:border-primary/20 transition-all duration-300">
-              <div className="aspect-video w-full overflow-hidden bg-surface-container relative">
-                <img 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
-                  src="/skin_abstract.png" 
-                  alt="Vitiligo Melanocyte Transplantation Visual"
-                />
-              </div>
-              <div className="p-6">
-                <div className="flex gap-4 mb-3 text-xs font-semibold tracking-widest uppercase font-mono">
-                  <span className="text-primary">{t.blog1Category}</span>
-                  <span className="text-on-surface-variant/40">•</span>
-                  <span className="text-on-surface-variant">{t.blog1Read}</span>
-                </div>
-                <h3 className="font-serif text-lg sm:text-xl text-white group-hover:text-secondary transition-colors mb-3">
-                  {t.blog1Title}
-                </h3>
-                <p className="text-on-surface-variant text-xs sm:text-sm leading-relaxed">
-                  {t.blog1Desc}
-                </p>
-              </div>
-            </article>
+            {postsData.map((post: any) => {
+              const title = post[`title_${lang}`] || post.title_en || "";
+              const category = post[`category_${lang}`] || post.category_en || "";
+              const readTime = post[`readTime_${lang}`] || post.readTime_en || "";
+              const description = post[`description_${lang}`] || post.description_en || "";
+              const image = category.toLowerCase().includes("vitiligo") || category.toLowerCase().includes("بهاق") 
+                ? "/skin_abstract.png" 
+                : "/mole_closeup.png";
 
-            {/* Article 2 */}
-            <article className="group cursor-pointer bg-surface-container/50 border border-outline-variant/10 rounded-2xl overflow-hidden hover:border-primary/20 transition-all duration-300">
-              <div className="aspect-video w-full overflow-hidden bg-surface-container relative">
-                <img 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
-                  src="/mole_closeup.png" 
-                  alt="Dermoscopy Mole Checking Visual"
-                />
-              </div>
-              <div className="p-6">
-                <div className="flex gap-4 mb-3 text-xs font-semibold tracking-widest uppercase font-mono">
-                  <span className="text-primary">{t.blog2Category}</span>
-                  <span className="text-on-surface-variant/40">•</span>
-                  <span className="text-on-surface-variant">{t.blog2Read}</span>
-                </div>
-                <h3 className="font-serif text-lg sm:text-xl text-white group-hover:text-secondary transition-colors mb-3">
-                  {t.blog2Title}
-                </h3>
-                <p className="text-on-surface-variant text-xs sm:text-sm leading-relaxed">
-                  {t.blog2Desc}
-                </p>
-              </div>
-            </article>
-
+              return (
+                <article key={post.slug} className="group cursor-pointer bg-surface-container/50 border border-outline-variant/10 rounded-2xl overflow-hidden hover:border-primary/20 transition-all duration-300">
+                  <div className="aspect-video w-full overflow-hidden bg-surface-container relative">
+                    <img 
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                      src={image} 
+                      alt={title}
+                    />
+                  </div>
+                  <div className="p-6">
+                    <div className="flex gap-4 mb-3 text-xs font-semibold tracking-widest uppercase font-mono">
+                      <span className="text-primary">{category}</span>
+                      <span className="text-on-surface-variant/40">•</span>
+                      <span className="text-on-surface-variant">{readTime}</span>
+                    </div>
+                    <h3 className="font-serif text-lg sm:text-xl text-white group-hover:text-secondary transition-colors mb-3">
+                      {title}
+                    </h3>
+                    <p className="text-on-surface-variant text-xs sm:text-sm leading-relaxed">
+                      {description}
+                    </p>
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </section>
 
