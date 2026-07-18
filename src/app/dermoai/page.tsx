@@ -5,18 +5,50 @@ import Head from "next/head";
 
 // Conditions matching the model outputs
 const CONDITIONS = [
-  { id: "melanoma", ar: "ميلانوما (سرطان الخلايا الصبغية)", en: "Melanoma", color: "bg-red-500" },
-  { id: "bcc", ar: "سرطان الخلايا القاعدية (BCC)", en: "Basal Cell Carcinoma (BCC)", color: "bg-orange-500" },
-  { id: "scc", ar: "سرطان الخلايا الحرشفية (SCC)", en: "Squamous Cell Carcinoma (SCC)", color: "bg-yellow-500" },
-  { id: "seborrheic_keratosis", ar: "تقران زهمي (حميد)", en: "Seborrheic Keratosis (Benign)", color: "bg-green-500" },
-  { id: "congenital_melanocytic_nevus", ar: "شامة صبغية خلقية (حميدة)", en: "Congenital Melanocytic Nevus (Benign)", color: "bg-teal-500" }
+  { 
+    id: "melanoma", 
+    ar: "ميلانوما (سرطان الخلايا الصبغية)", 
+    en: "Melanoma", 
+    tr: "Melanom (Malign Melanom)", 
+    color: "bg-red-500" 
+  },
+  { 
+    id: "bcc", 
+    ar: "سرطان الخلايا القاعدية (BCC)", 
+    en: "Basal Cell Carcinoma (BCC)", 
+    tr: "Bazal Hücreli Karsinom (BCC)", 
+    color: "bg-orange-500" 
+  },
+  { 
+    id: "scc", 
+    ar: "سرطان الخلايا الحرشفية (SCC)", 
+    en: "Squamous Cell Carcinoma (SCC)", 
+    tr: "Skuamöz Hücreli Karsinom (SCC)", 
+    color: "bg-yellow-500" 
+  },
+  { 
+    id: "seborrheic_keratosis", 
+    ar: "تقران زهمي (حميد)", 
+    en: "Seborrheic Keratosis (Benign)", 
+    tr: "Seboreik Keratoz (İyi Huylu)", 
+    color: "bg-green-500" 
+  },
+  { 
+    id: "congenital_melanocytic_nevus", 
+    ar: "شامة صبغية خلقية (حميدة)", 
+    en: "Congenital Melanocytic Nevus (Benign)", 
+    tr: "Konjenital Melanositik Nevüs (İyi Huylu)", 
+    color: "bg-teal-500" 
+  }
 ];
 
 // Helper to translate conditions
-const getConditionName = (id: string, lang: "ar" | "en") => {
+const getConditionName = (id: string, lang: "ar" | "en" | "tr") => {
   const cond = CONDITIONS.find(c => c.id === id);
   if (!cond) return id;
-  return lang === "ar" ? cond.ar : cond.en;
+  if (lang === "ar") return cond.ar;
+  if (lang === "tr") return cond.tr;
+  return cond.en;
 };
 
 const getConditionColor = (id: string) => {
@@ -32,7 +64,7 @@ interface ScanHistoryItem {
 }
 
 export default function DermoAIPage() {
-  const [lang, setLang] = useState<"ar" | "en">("ar");
+  const [lang, setLang] = useState<"ar" | "en" | "tr">("ar");
   const [litertLoaded, setLitertLoaded] = useState(false);
   const [litertLoading, setLitertLoading] = useState(true);
   const [modelCompiling, setModelCompiling] = useState(false);
@@ -185,7 +217,9 @@ export default function DermoAIPage() {
       console.error("Camera access error:", err);
       setCameraError(lang === "ar" 
         ? "تعذر تشغيل الكاميرا. يرجى التحقق من أذونات الموقع/الكاميرا."
-        : "Failed to access camera. Please check permissions."
+        : lang === "tr"
+          ? "Kameraya erişilemedi. Lütfen site izinlerini kontrol edin."
+          : "Failed to access camera. Please check permissions."
       );
       setCameraActive(false);
     }
@@ -212,7 +246,13 @@ export default function DermoAIPage() {
   // Preprocess image and run LiteRT inference
   const processImage = async (imageSrc: string) => {
     if (!modelRef.current || !litertLibRef.current) {
-      alert(lang === "ar" ? "جاري تحميل النموذج، يرجى المحاولة بعد قليل." : "Model is still loading. Please wait.");
+      alert(
+        lang === "ar" 
+          ? "جاري تحميل النموذج، يرجى المحاولة بعد قليل." 
+          : lang === "tr" 
+            ? "Model yükleniyor, lütfen biraz bekleyin." 
+            : "Model is still loading. Please wait."
+      );
       return;
     }
 
@@ -294,7 +334,7 @@ export default function DermoAIPage() {
 
         const newHistoryItem: ScanHistoryItem = {
           id: Math.random().toString(36).substring(2, 9),
-          date: new Date().toLocaleDateString(lang === "ar" ? "ar-JO" : "en-US", {
+          date: new Date().toLocaleDateString(lang === "ar" ? "ar-JO" : lang === "tr" ? "tr-TR" : "en-US", {
             year: "numeric",
             month: "short",
             day: "numeric",
@@ -313,7 +353,13 @@ export default function DermoAIPage() {
 
     } catch (err) {
       console.error("Inference processing error:", err);
-      alert(lang === "ar" ? "فشل تحليل الصورة. يرجى التأكد من جودة الإضاءة ووضوح الآفة." : "Inference failed. Check image clarity.");
+      alert(
+        lang === "ar" 
+          ? "فشل تحليل الصورة. يرجى التأكد من جودة الإضاءة ووضوح الآفة." 
+          : lang === "tr" 
+            ? "Resim analizi başarısız oldu. Lütfen ışık kalitesini ve lezyon netliğini kontrol edin." 
+            : "Inference failed. Check image clarity."
+      );
     } finally {
       setIsProcessing(false);
     }
@@ -394,17 +440,36 @@ export default function DermoAIPage() {
               <span className="text-[10px] bg-teal-500/10 text-teal-300 px-2 py-0.5 rounded-full font-bold border border-teal-500/20 font-inter">v{lang === "ar" ? "١.٠" : "1.0"}</span>
             </div>
             <p className="text-[11px] text-slate-400 font-semibold mt-0.5">
-              {lang === "ar" ? "تطوير د. أسامة الوريكات (جلدية وتناسلية وليزر)" : "Created by Dr. Osama Alwreikat (Skin, Venereology & Laser)"}
+              {lang === "ar" 
+                ? "تطوير د. أسامة الوريكات (جلدية وتناسلية وليزر)" 
+                : lang === "tr"
+                  ? "Dr. Osama Alwreikat tarafından geliştirilmiştir (Dermatoloji ve Lazer)"
+                  : "Created by Dr. Osama Alwreikat (Skin, Venereology & Laser)"}
             </p>
           </div>
         </div>
 
-        <button 
-          onClick={() => setLang(lang === "ar" ? "en" : "ar")}
-          className="px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-xs font-semibold hover:bg-slate-800 hover:border-slate-700 transition duration-200"
-        >
-          {lang === "ar" ? "English" : "عربي"}
-        </button>
+        {/* Trilingual Language Selector */}
+        <div className="flex gap-1 bg-slate-900 border border-slate-800 p-0.5 rounded-lg select-none">
+          <button 
+            onClick={() => setLang("ar")} 
+            className={`px-2 py-1 text-[10px] rounded-md font-semibold transition ${lang === "ar" ? "bg-teal-500 text-white" : "text-slate-400 hover:text-slate-200"}`}
+          >
+            عربي
+          </button>
+          <button 
+            onClick={() => setLang("en")} 
+            className={`px-2 py-1 text-[10px] rounded-md font-semibold transition ${lang === "en" ? "bg-teal-500 text-white" : "text-slate-400 hover:text-slate-200"}`}
+          >
+            EN
+          </button>
+          <button 
+            onClick={() => setLang("tr")} 
+            className={`px-2 py-1 text-[10px] rounded-md font-semibold transition ${lang === "tr" ? "bg-teal-500 text-white" : "text-slate-400 hover:text-slate-200"}`}
+          >
+            TR
+          </button>
+        </div>
       </header>
 
       {/* Intro Tagline Banner */}
@@ -416,14 +481,16 @@ export default function DermoAIPage() {
           <blockquote className="text-sm md:text-base font-medium italic text-slate-300 leading-relaxed font-cairo select-none">
             {lang === "ar" 
               ? "«دمج دقة التشخيص السريري بالذكاء الاصطناعي مع الخصوصية التامة للبيانات — تحليل فوري محلي بالكامل دون رفع صور المرضى للسحابة.»"
-              : "“Bridging clinical dermatology expertise with secure, on-device artificial intelligence — instant local inference with zero cloud data transfer, ensuring absolute patient privacy.”"
+              : lang === "tr"
+                ? "“Klinik dermatoloji uzmanlığını güvenli, cihaz içi yapay zeka ile birleştirdik — hasta gizliliğini korumak adına bulut sunuculara veri aktarımı olmadan, anında yerel analiz.”"
+                : "“Bridging clinical dermatology expertise with secure, on-device artificial intelligence — instant local inference with zero cloud data transfer, ensuring absolute patient privacy.”"
             }
           </blockquote>
           
           <div className="mt-4 flex items-center gap-2">
             <span className="w-4 h-[1px] bg-teal-500/40" />
             <span className="text-[11px] font-bold text-teal-400 tracking-wide uppercase font-inter">
-              {lang === "ar" ? "رؤية المطور السريري" : "Clinical Creator Vision"}
+              {lang === "ar" ? "رؤية المطور السريري" : lang === "tr" ? "Klinik Geliştirici Vizyonu" : "Clinical Creator Vision"}
             </span>
           </div>
         </div>
@@ -443,12 +510,14 @@ export default function DermoAIPage() {
               <div className="absolute inset-0 z-40 bg-slate-950/95 flex flex-col items-center justify-center p-6 text-center">
                 <div className="w-14 h-14 rounded-full border-4 border-slate-800 border-t-teal-500 animate-spin mb-4" />
                 <h3 className="text-lg font-bold">
-                  {lang === "ar" ? "جاري تحميل محرك الذكاء الاصطناعي..." : "Initializing AI Engine..."}
+                  {lang === "ar" ? "جاري تحميل محرك الذكاء الاصطناعي..." : lang === "tr" ? "Yapay Zeka Motoru Başlatılıyor..." : "Initializing AI Engine..."}
                 </h3>
                 <p className="text-xs text-slate-400 max-w-sm mt-2">
                   {lang === "ar" 
                     ? "يقوم المتصفح بتحميل وتجهيز محرك الـ WebAssembly والشبكة العصبية محلياً على جهازك لتوفير أمان تام لبياناتك."
-                    : "The browser is loading the WebAssembly AI runtime locally on your device to ensure 100% privacy."
+                    : lang === "tr"
+                      ? "Tarayıcınız, %100 gizlilik sağlamak için WebAssembly yapay zeka motorunu ve sinir ağını yerel olarak cihazınızda yükler."
+                      : "The browser is loading the WebAssembly AI runtime locally on your device to ensure 100% privacy."
                   }
                 </p>
               </div>
@@ -459,12 +528,14 @@ export default function DermoAIPage() {
               <div className="absolute inset-0 z-40 bg-slate-950/95 flex flex-col items-center justify-center p-6 text-center">
                 <div className="w-14 h-14 rounded-full border-4 border-slate-800 border-t-emerald-500 animate-spin mb-4" />
                 <h3 className="text-lg font-bold">
-                  {lang === "ar" ? "جاري تجميع الشبكة العصبية (WebGPU)..." : "Compiling Neural Network (WebGPU)..."}
+                  {lang === "ar" ? "جاري تجميع الشبكة العصبية (WebGPU)..." : lang === "tr" ? "Sinir Ağı Derleniyor (WebGPU)..." : "Compiling Neural Network (WebGPU)..."}
                 </h3>
                 <p className="text-xs text-slate-400 max-w-sm mt-2">
                   {lang === "ar" 
                     ? "نقوم بتهيئة النموذج على معالج الرسوميات بجهازك لتشغيل التحليل بسرعة فائقة."
-                    : "Compiling the EfficientNet model on your device's GPU for real-time acceleration."
+                    : lang === "tr"
+                      ? "Gerçek zamanlı hızlandırma için EfficientNet modelini cihazınızın grafik işlemcisinde (GPU) derliyoruz."
+                      : "Compiling the EfficientNet model on your device's GPU for real-time acceleration."
                   }
                 </p>
               </div>
@@ -583,7 +654,7 @@ export default function DermoAIPage() {
                 <div className="absolute inset-0 bg-slate-950/70 backdrop-blur-xs flex flex-col items-center justify-center z-10">
                   <div className="w-12 h-12 rounded-full border-4 border-slate-800 border-t-teal-500 animate-spin mb-3" />
                   <p className="text-sm font-bold tracking-wide">
-                    {lang === "ar" ? "جاري تحليل الآفة الجلدية..." : "Analyzing Lesion..."}
+                    {lang === "ar" ? "جاري تحليل الآفة الجلدية..." : lang === "tr" ? "Lezyon Analiz Ediliyor..." : "Analyzing Lesion..."}
                   </p>
                 </div>
               )}
@@ -597,7 +668,7 @@ export default function DermoAIPage() {
                     onClick={stopCamera}
                     className="px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 text-xs font-bold hover:bg-slate-800 transition duration-200"
                   >
-                    {lang === "ar" ? "إلغاء الكاميرا" : "Cancel"}
+                    {lang === "ar" ? "إلغاء الكاميرا" : lang === "tr" ? "Kamerayı Kapat" : "Cancel"}
                   </button>
                   
                   <button 
@@ -608,7 +679,7 @@ export default function DermoAIPage() {
                   </button>
 
                   <label className="px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 hover:bg-slate-800 text-xs font-bold cursor-pointer transition duration-200">
-                    <span>{lang === "ar" ? "ملف" : "File"}</span>
+                    <span>{lang === "ar" ? "ملف" : lang === "tr" ? "Dosya" : "File"}</span>
                     <input 
                       type="file" 
                       accept="image/*" 
@@ -623,7 +694,7 @@ export default function DermoAIPage() {
                     onClick={resetScan}
                     className="w-full py-3 rounded-xl bg-slate-900 border border-slate-800 hover:bg-slate-800 font-bold text-sm transition duration-200"
                   >
-                    {lang === "ar" ? "إجراء فحص جديد" : "Scan Another Lesion"}
+                    {lang === "ar" ? "إجراء فحص جديد" : lang === "tr" ? "Yeni Tarama Yap" : "Scan Another Lesion"}
                   </button>
                 )
               )}
@@ -635,7 +706,7 @@ export default function DermoAIPage() {
             <div className="bg-slate-900/60 border border-slate-900 rounded-3xl p-6 flex flex-col gap-6 shadow-xl backdrop-blur-md animate-fade-in">
               <div className="border-b border-slate-800 pb-4">
                 <h3 className="text-lg font-bold flex items-center gap-2">
-                  📊 {lang === "ar" ? "نتائج التصنيف وتوقعات النموذج" : "Model Prediction Results"}
+                  📊 {lang === "ar" ? "نتائج التصنيف وتوقعات النموذج" : lang === "tr" ? "Model Tahmin Sonuçları" : "Model Prediction Results"}
                 </h3>
               </div>
 
@@ -643,7 +714,7 @@ export default function DermoAIPage() {
               <div className="bg-slate-950/40 border border-slate-900/50 rounded-2xl p-5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                 <div>
                   <span className="text-xs text-slate-500 font-bold uppercase tracking-wider block">
-                    {lang === "ar" ? "التشخيص الأرجح للنموذج" : "Primary AI Prediction"}
+                    {lang === "ar" ? "التشخيص الأرجح للنموذج" : lang === "tr" ? "Birincil Yapay Zeka Tahmini" : "Primary AI Prediction"}
                   </span>
                   <span className="text-lg font-extrabold block mt-1 text-teal-400">
                     {getConditionName(results.prediction, lang)}
@@ -651,7 +722,7 @@ export default function DermoAIPage() {
                 </div>
                 <div className="text-right">
                   <span className="text-xs text-slate-500 font-bold uppercase tracking-wider block">
-                    {lang === "ar" ? "مستوى الثقة" : "Confidence Level"}
+                    {lang === "ar" ? "مستوى الثقة" : lang === "tr" ? "Güven Seviyesi" : "Confidence Level"}
                   </span>
                   <span className="text-2xl font-black text-white block mt-1 font-mono">
                     {(results.confidence * 100).toFixed(1)}%
@@ -662,7 +733,7 @@ export default function DermoAIPage() {
               {/* Differential Diagnosis List */}
               <div className="flex flex-col gap-4">
                 <span className="text-xs text-slate-500 font-bold uppercase tracking-wider">
-                  {lang === "ar" ? "التشخيصات المقارنة (أعلى 3)" : "Top 3 Differentials"}
+                  {lang === "ar" ? "التشخيصات المقارنة (أعلى 3)" : lang === "tr" ? "En Olası 3 Ayırıcı Tanı" : "Top 3 Differentials"}
                 </span>
 
                 <div className="flex flex-col gap-3">
@@ -687,11 +758,13 @@ export default function DermoAIPage() {
               {/* Disclaimer */}
               <div className="p-4 rounded-2xl bg-amber-500/5 border border-amber-500/20 text-xs text-amber-200/90 leading-relaxed">
                 <div className="flex items-center gap-2 font-bold mb-1">
-                  ⚠️ {lang === "ar" ? "إخلاء مسؤولية طبي هام" : "Important Clinical Disclaimer"}
+                  ⚠️ {lang === "ar" ? "إخلاء مسؤولية طبي هام" : lang === "tr" ? "Önemli Tıbbi Sorumluluk Reddi" : "Important Clinical Disclaimer"}
                 </div>
                 {lang === "ar"
                   ? "تحليل الذكاء الاصطناعي هذا هو أداة تعليمية واستقصائية مساعدة فقط، ولا يمكن اعتباره تشخيصاً طبياً نهائياً. الفحص السريري من قبل طبيب الجلدية وبواسطة المنظار الجلدي هو المرجعية الطبية الوحيدة المعتمدة للتشخيص وتحديد العلاج."
-                  : "This local AI classification model is designed strictly as an educational and screening assistant. It is NOT a definitive medical diagnosis. A clinical skin specialist review remains the absolute gold standard for diagnosis and treatment planning."
+                  : lang === "tr"
+                    ? "Bu yerel yapay zeka analiz modeli yalnızca eğitsel ve tarama amaçlı bir yardımcı araçtır. Kesin bir tıbbi tanı teşkil etmez. Teşhis ve tedavi planlaması için uzman bir dermatolog tarafından yapılacak klinik muayene yegane referanstır."
+                    : "This local AI classification model is designed strictly as an educational and screening assistant. It is NOT a definitive medical diagnosis. A clinical skin specialist review remains the absolute gold standard for diagnosis and treatment planning."
                 }
               </div>
             </div>
@@ -705,21 +778,21 @@ export default function DermoAIPage() {
           <div className="bg-slate-900/60 border border-slate-900 rounded-3xl p-5 shadow-xl backdrop-blur-md">
             <div className="flex justify-between items-center border-b border-slate-800 pb-3 mb-4">
               <h3 className="text-sm font-bold flex items-center gap-2">
-                📜 {lang === "ar" ? "سجل الفحوصات المحلية" : "Local Scan History"}
+                📜 {lang === "ar" ? "سجل الفحوصات المحلية" : lang === "tr" ? "Yerel Tarama Geçmişi" : "Local Scan History"}
               </h3>
               {history.length > 0 && (
                 <button 
                   onClick={clearHistory}
                   className="text-xs text-red-400 hover:text-red-300 font-semibold"
                 >
-                  {lang === "ar" ? "مسح" : "Clear"}
+                  {lang === "ar" ? "مسح" : lang === "tr" ? "Temizle" : "Clear"}
                 </button>
               )}
             </div>
 
             {history.length === 0 ? (
               <div className="py-8 text-center text-xs text-slate-500 font-medium">
-                {lang === "ar" ? "لا يوجد سجلات فحص سابقة في هذا المتصفح." : "No previous scan history in this browser."}
+                {lang === "ar" ? "لا يوجد سجلات فحص سابقة في هذا المتصفح." : lang === "tr" ? "Bu tarayıcıda kayıtlı tarama geçmişi bulunmamaktadır." : "No previous scan history in this browser."}
               </div>
             ) : (
               <div className="flex flex-col gap-3 max-h-[300px] overflow-y-auto pr-1">
@@ -757,7 +830,7 @@ export default function DermoAIPage() {
           {/* Creator & Other Projects Panel */}
           <div className="bg-slate-900/60 border border-slate-900 rounded-3xl p-5 shadow-xl backdrop-blur-md flex flex-col gap-4">
             <h3 className="text-sm font-bold text-white border-b border-slate-800 pb-3 flex items-center gap-2">
-              👨‍⚕️ {lang === "ar" ? "عن المطور والمشاريع الأخرى" : "Creator & Other Projects"}
+              👨‍⚕️ {lang === "ar" ? "عن المطور والمشاريع الأخرى" : lang === "tr" ? "Geliştirici ve Diğer Projeler" : "Creator & Other Projects"}
             </h3>
             
             {/* About Creator Bio */}
@@ -766,12 +839,18 @@ export default function DermoAIPage() {
                 {lang === "ar" ? "د. أسامة الوريكات" : "Dr. Osama Alwreikat"}
               </p>
               <p className="text-slate-400 text-[11px] mt-0.5">
-                {lang === "ar" ? "طبيب أمراض جلدية وتناسلية وليزر | عمان، الأردن" : "Skin, Venereology & Laser Specialist | Amman, Jordan"}
+                {lang === "ar" 
+                  ? "طبيب أمراض جلدية وتناسلية وليزر | عمان، الأردن" 
+                  : lang === "tr"
+                    ? "Deri ve Zührevi Hastalıklar Uzmanı | Amman, Ürdün"
+                    : "Skin, Venereology & Laser Specialist | Amman, Jordan"}
               </p>
               <p className="mt-2 text-slate-300">
                 {lang === "ar" 
                   ? "خريج أكاديمية غولهانة الطبية العسكرية التركية (GATA) في أنقرة. متخصّص في زراعة الخلايا الصبغية للبهاق وعلاجات ندبات حب الشباب."
-                  : "Graduate of the Turkish Military Medical Academy (GATA) in Ankara. Specialized in micro-vitiligo surgery, melanocyte transplant, and advanced acne scar reconstruction."
+                  : lang === "tr"
+                    ? "Ankara Gülhane Askeri Tıp Akademisi (GATA) mezunudur. Vitiligo cerrahisi, melanosit transplantasyonu ve sivilce izi tedavilerinde uzmanlaşmıştır."
+                    : "Graduate of the Turkish Military Medical Academy (GATA) in Ankara. Specialized in micro-vitiligo surgery, melanocyte transplant, and advanced acne scar reconstruction."
                 }
               </p>
             </div>
@@ -779,7 +858,7 @@ export default function DermoAIPage() {
             {/* Explore other projects links */}
             <div className="flex flex-col gap-2 pt-2 border-t border-slate-900/60">
               <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">
-                {lang === "ar" ? "استكشف منتجات أخرى" : "Explore Other Projects"}
+                {lang === "ar" ? "استكشف منتجات أخرى" : lang === "tr" ? "Diğer Projeleri Keşfet" : "Explore Other Projects"}
               </span>
               
               {/* Link to Dermosce */}
@@ -796,7 +875,7 @@ export default function DermoAIPage() {
                   <div className="text-right">
                     <span className="font-bold block text-slate-200 group-hover:text-teal-400 transition duration-200">Dermosce</span>
                     <span className="text-[10px] text-slate-500 font-semibold block mt-0.5">
-                      {lang === "ar" ? "منصة التدريب على امتحانات الجلدية" : "Dermatology OSCE Training Platform"}
+                      {lang === "ar" ? "منصة التدريب على امتحانات الجلدية" : lang === "tr" ? "Dermatoloji OSCE Sınavı Eğitim Platformu" : "Dermatology OSCE Training Platform"}
                     </span>
                   </div>
                 </div>
@@ -816,7 +895,7 @@ export default function DermoAIPage() {
                   </div>
                   <div className="text-right">
                     <span className="font-bold block text-slate-200 group-hover:text-emerald-400 transition duration-200">
-                      {lang === "ar" ? "الموقع الشخصي" : "Official Website"}
+                      {lang === "ar" ? "الموقع الشخصي" : lang === "tr" ? "Resmi Web Sitesi" : "Official Website"}
                     </span>
                     <span className="text-[10px] text-slate-500 font-semibold block mt-0.5">wraikat.com</span>
                   </div>
@@ -829,29 +908,35 @@ export default function DermoAIPage() {
           {/* Guidelines/How-To Panel */}
           <div className="bg-slate-900/60 border border-slate-900 rounded-3xl p-5 shadow-xl backdrop-blur-md text-xs text-slate-300 leading-relaxed flex flex-col gap-4">
             <h3 className="text-sm font-bold text-white border-b border-slate-800 pb-3 flex items-center gap-2">
-              🔎 {lang === "ar" ? "تعليمات الفحص الصحيح" : "How to Scan Correctly"}
+              🔎 {lang === "ar" ? "تعليمات الفحص الصحيح" : lang === "tr" ? "Doğru Tarama Kılavuzu" : "How to Scan Correctly"}
             </h3>
 
             <ul className="flex flex-col gap-3 list-decimal list-inside pr-1">
               <li>
-                <span className="font-semibold text-teal-400">{lang === "ar" ? "استخدام المنظار (Dermoscope):" : "Use a Dermoscope:"}</span>{" "}
+                <span className="font-semibold text-teal-400">{lang === "ar" ? "استخدام المنظار (Dermoscope):" : lang === "tr" ? "Dermoskop Kullanımı:" : "Use a Dermoscope:"}</span>{" "}
                 {lang === "ar"
                   ? "تأكد من تركيب العدسة المكبرة المخصصة للأمراض الجلدية على كاميرا الهاتف."
-                  : "Securely mount your professional smartphone-compatible dermoscope over the camera lens."
+                  : lang === "tr"
+                    ? "Telefon kamerasının üzerine uygun profesyonel dermoskop merceğini yerleştirdiğinizden emin olun."
+                    : "Securely mount your professional smartphone-compatible dermoscope over the camera lens."
                 }
               </li>
               <li>
-                <span className="font-semibold text-teal-400">{lang === "ar" ? "الإضاءة والتوسيط:" : "Lighting & Alignment:"}</span>{" "}
+                <span className="font-semibold text-teal-400">{lang === "ar" ? "الإضاءة والتوسيط:" : lang === "tr" ? "Hizalama ve Işık:" : "Lighting & Alignment:"}</span>{" "}
                 {lang === "ar"
                   ? "وسط الشامة أو الآفة الجلدية داخل دائرة التوجيه تماماً لتسهيل تعرف النموذج عليها."
-                  : "Center the target mole/lesion completely inside the viewport target circle."
+                  : lang === "tr"
+                    ? "Modelin lezyonu kolayca tanımlayabilmesi için hedef beni/lezyonu vizör dairesinin tam ortasına getirin."
+                    : "Center the target mole/lesion completely inside the viewport target circle."
                 }
               </li>
               <li>
-                <span className="font-semibold text-teal-400">{lang === "ar" ? "الوضوح البؤري:" : "Optimal Focus:"}</span>{" "}
+                <span className="font-semibold text-teal-400">{lang === "ar" ? "الوضوح البؤري:" : lang === "tr" ? "Doğru Odaklama:" : "Optimal Focus:"}</span>{" "}
                 {lang === "ar"
                   ? "تجنب الصور المهتزة أو ذات التركيز الضعيف. يفضل النقر على الشاشة لضبط التركيز."
-                  : "Ensure the camera focus is razor-sharp. Tap to focus manually if needed."
+                  : lang === "tr"
+                    ? "Bulanık veya titrek fotoğraflardan kaçının. Net odaklama için ekrana dokunarak manuel odak yapın."
+                    : "Ensure the camera focus is razor-sharp. Tap to focus manually if needed."
                 }
               </li>
             </ul>
