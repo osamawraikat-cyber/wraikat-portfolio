@@ -382,20 +382,19 @@ export default function DermoAIPage() {
       {/* Header */}
       <header className="border-b border-slate-900 bg-slate-950/80 backdrop-blur sticky top-0 z-50 px-4 py-4 flex justify-between items-center max-w-5xl mx-auto w-full">
         <div className="flex items-center gap-3">
-          {/* Custom Medical-AI Scanning Aperture SVG Icon */}
-          <div className="w-12 h-12 rounded-xl bg-gradient-to-tr from-teal-600 via-emerald-600 to-teal-500 flex items-center justify-center shadow-lg shadow-teal-500/20 relative group">
-            <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-            </svg>
-            <div className="absolute inset-0 rounded-xl border border-white/20 animate-ping opacity-25 pointer-events-none" />
-          </div>
+          {/* Custom Generated Medical-AI Icon */}
+          <img 
+            src="/images/dermoai-icon.png" 
+            alt="DermoAI Logo" 
+            className="w-12 h-12 rounded-xl object-cover shadow-lg shadow-teal-500/20 border border-teal-500/20"
+          />
           <div>
             <div className="flex items-baseline gap-2">
               <h1 className="text-2xl font-black tracking-tight font-inter bg-gradient-to-r from-teal-400 to-emerald-300 bg-clip-text text-transparent">DermoAI</h1>
               <span className="text-[10px] bg-teal-500/10 text-teal-300 px-2 py-0.5 rounded-full font-bold border border-teal-500/20 font-inter">v{lang === "ar" ? "١.٠" : "1.0"}</span>
             </div>
             <p className="text-[11px] text-slate-400 font-semibold mt-0.5">
-              {lang === "ar" ? "تطوير د. أسامة الوريكات (أخصائي الجلدية)" : "Created by Dr. Osama Alwreikat (Dermatologist)"}
+              {lang === "ar" ? "تطوير د. أسامة الوريكات (جلدية وتناسلية وليزر)" : "Created by Dr. Osama Alwreikat (Skin, Venereology & Laser)"}
             </p>
           </div>
         </div>
@@ -691,8 +690,8 @@ export default function DermoAIPage() {
                   ⚠️ {lang === "ar" ? "إخلاء مسؤولية طبي هام" : "Important Clinical Disclaimer"}
                 </div>
                 {lang === "ar"
-                  ? "تحليل الذكاء الاصطناعي هذا هو أداة تعليمية واستقصائية مساعدة فقط، ولا يمكن اعتباره تشخيصاً طبياً نهائياً. الفحص السريري من قبل طبيب الجلدية المختص وبواسطة المنظار الجلدي هو المرجعية الطبية الوحيدة المعتمدة للتشخيص وتحديد العلاج."
-                  : "This local AI classification model is designed strictly as an educational and screening assistant. It is NOT a definitive medical diagnosis. A clinical dermatologist review remains the absolute gold standard for diagnosis and treatment planning."
+                  ? "تحليل الذكاء الاصطناعي هذا هو أداة تعليمية واستقصائية مساعدة فقط، ولا يمكن اعتباره تشخيصاً طبياً نهائياً. الفحص السريري من قبل طبيب الجلدية وبواسطة المنظار الجلدي هو المرجعية الطبية الوحيدة المعتمدة للتشخيص وتحديد العلاج."
+                  : "This local AI classification model is designed strictly as an educational and screening assistant. It is NOT a definitive medical diagnosis. A clinical skin specialist review remains the absolute gold standard for diagnosis and treatment planning."
                 }
               </div>
             </div>
@@ -767,7 +766,7 @@ export default function DermoAIPage() {
                 {lang === "ar" ? "د. أسامة الوريكات" : "Dr. Osama Alwreikat"}
               </p>
               <p className="text-slate-400 text-[11px] mt-0.5">
-                {lang === "ar" ? "أخصائي أمراض جلدي وتناسلية وليزر | عمان، الأردن" : "Dermatologist & Laser Specialist | Amman, Jordan"}
+                {lang === "ar" ? "طبيب أمراض جلدية وتناسلية وليزر | عمان، الأردن" : "Skin, Venereology & Laser Specialist | Amman, Jordan"}
               </p>
               <p className="mt-2 text-slate-300">
                 {lang === "ar" 
@@ -860,6 +859,13 @@ export default function DermoAIPage() {
         </section>
 
       </main>
+
+      {/* Hidden SEO Metadata for Search Indexers & AI Search Engines */}
+      <div className="sr-only" aria-hidden="true">
+        <h2>DermoAI - ذكاء اصطناعي لتصنيف شامات الجلد وسرطان الجلد | د. أسامة الوريكات</h2>
+        <p>تطوير الدكتور أسامة الوريكات، أخصائي أمراض الجلدية والتناسلية والليزر في عمان الأردن. خريج أكاديمية غولهانة (GATA) في أنقرة. متخصص في جراحة البهاق وزراعة الخلايا الصبغية وتجميل ندب حب الشباب.</p>
+        <p>الكلمات المفتاحية: أخصائي جلدية عمان، دكتور جلدية الأردن، تشخيص سرطان الجلد بالذكاء الاصطناعي، فحص شامة سرطانية، melanoma classification, basal cell carcinoma diagnosis, squamous cell carcinoma screening, GATA dermatologist amman, vitiligo surgery jordan.</p>
+      </div>
 
       {/* Footer */}
       <footer className="border-t border-slate-900 bg-slate-950 mt-12 py-6 text-center text-xs text-slate-500 max-w-5xl mx-auto w-full">
