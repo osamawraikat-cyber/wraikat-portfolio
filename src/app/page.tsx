@@ -55,6 +55,11 @@ const translations = {
     relumDesc: "Relum is a custom digital health application developed by Dr. Osama to support vitiligo patients. It assists users in monitoring patch changes, tracking phototherapy/UV exposure times, and managing compliance.",
     btnExploreRelum: "Vitiligo Patient Tool",
     relumTag: "Patient-centric app",
+    dermoaiTitle: "DermoAI Platform",
+    dermoaiSubtitle: "AI-powered clinical support",
+    dermoaiDesc: "DermoAI (dermoai.wraikat.com) is an AI-assisted dermatology tool designed to combine clinical diagnostic precision with total data privacy. It allows real-time scanning and skin lesion analysis directly on-device.",
+    btnExploreDermoAI: "Launch DermoAI",
+    dermoaiTag: "On-device AI privacy",
     
     // Blog
     blogSubtitle: "Latest Insights",
@@ -135,6 +140,11 @@ const translations = {
     relumDesc: "تطبيق ذكي صمم خصيصاً لمساعدة مرضى البهاق على تتبع بقع البهاق، وحساب أوقات التعرض للأشعة فوق البنفسجية والعلاج الضوئي، ومتابعة الاستجابة العلاجية.",
     btnExploreRelum: "مساعد البهاق الذكي",
     relumTag: "تطبيق مخصص للمرضى",
+    dermoaiTitle: "منصة DermoAI",
+    dermoaiSubtitle: "الذكاء الاصطناعي السريري",
+    dermoaiDesc: "تطبيق DermoAI (dermoai.wraikat.com) هو أداة سريرية مبتكرة تدمج دقة تشخيص أمراض الجلد مع الذكاء الاصطناعي المحلي. يتيح فحص الآفات الجلدية وتحليلها فورياً مع الحفاظ على الخصوصية التامة للبيانات دون رفع صور المرضى.",
+    btnExploreDermoAI: "تشغيل DermoAI",
+    dermoaiTag: "ذكاء اصطناعي محلي آمن",
     
     // Blog
     blogSubtitle: "منشورات تعليمية",
@@ -215,6 +225,11 @@ const translations = {
     relumDesc: "Vitiligo hastalarının hayatını kolaylaştırmak için Dr. Osama tarafından geliştirilen mobil uygulama. Vitiligo lekelerinin takibini, fototerapi/UV süre hesaplamasını ve tedavi seyrini izlemeyi sağlar.",
     btnExploreRelum: "Vitiligo Hasta Uygulaması",
     relumTag: "Hasta odaklı uygulama",
+    dermoaiTitle: "DermoAI Platformu",
+    dermoaiSubtitle: "Yapay zeka klinik desteği",
+    dermoaiDesc: "DermoAI (dermoai.wraikat.com), klinik teşhis hassasiyetini yerel yapay zeka teknolojisiyle birleştiren yenilikçi bir dermatoloji aracıdır. Cilt lezyonlarını sunuculara yüklemeden tarayıp analiz etmeyi sağlar.",
+    btnExploreDermoAI: "DermoAI'ı Başlat",
+    dermoaiTag: "Cihaz içi yapay zeka gizliliği",
     
     // Blog
     blogSubtitle: "Son Yayınlar",
@@ -505,8 +520,42 @@ export default function PortfolioPage() {
               <h2 className="font-serif text-3xl md:text-4xl text-white mt-2 font-bold">{t.projectsTitle}</h2>
             </div>
             
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               
+              {/* DermoAI Card */}
+              <div className="glass-card rounded-3xl overflow-hidden flex flex-col justify-between shadow-[0_20px_50px_rgba(0,0,0,0.4)] border border-white/5 hover:border-primary/20 transition-all duration-300">
+                <div className="relative h-64 w-full">
+                  <img 
+                    className="w-full h-full object-cover" 
+                    src="/mole_closeup.png" 
+                    alt="DermoAI Platform Preview"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/40 to-transparent"></div>
+                  <span className="absolute top-4 left-4 bg-primary-container/80 backdrop-blur-sm text-white text-[10px] font-bold tracking-widest uppercase px-3 py-1 rounded-full border border-white/10 font-mono">
+                    {t.dermoaiTag}
+                  </span>
+                </div>
+                <div className="p-8 flex flex-col justify-between flex-1">
+                  <div>
+                    <span className="text-secondary text-[11px] font-bold tracking-widest uppercase block mb-1 font-mono">{t.dermoaiSubtitle}</span>
+                    <h3 className="font-serif text-2xl text-white mb-4 leading-snug">{t.dermoaiTitle}</h3>
+                    <p className="text-on-surface-variant text-xs sm:text-sm mb-8 leading-relaxed">
+                      {t.dermoaiDesc}
+                    </p>
+                  </div>
+                  <div>
+                    <a 
+                      className="inline-block bg-primary-container hover:bg-primary text-white px-6 py-3 rounded-xl font-semibold text-xs tracking-wider uppercase transition-all border border-white/5 text-center w-full sm:w-auto" 
+                      href="https://dermoai.wraikat.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {t.btnExploreDermoAI} ↗
+                    </a>
+                  </div>
+                </div>
+              </div>
+
               {/* DermOSCE Card */}
               <div className="glass-card rounded-3xl overflow-hidden flex flex-col justify-between shadow-[0_20px_50px_rgba(0,0,0,0.4)] border border-white/5 hover:border-primary/20 transition-all duration-300">
                 <div className="relative h-64 w-full">
