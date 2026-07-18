@@ -756,16 +756,18 @@ export default function DermoAIPage() {
               </div>
 
               {/* Disclaimer */}
-              <div className="p-4 rounded-2xl bg-amber-500/5 border border-amber-500/20 text-xs text-amber-200/90 leading-relaxed">
-                <div className="flex items-center gap-2 font-bold mb-1">
+              <div className="p-4 rounded-2xl bg-amber-500/5 border border-amber-500/20 text-xs text-amber-200/90 leading-relaxed flex flex-col gap-2">
+                <div className="flex items-center gap-2 font-bold">
                   ⚠️ {lang === "ar" ? "إخلاء مسؤولية طبي هام" : lang === "tr" ? "Önemli Tıbbi Sorumluluk Reddi" : "Important Clinical Disclaimer"}
                 </div>
-                {lang === "ar"
-                  ? "تحليل الذكاء الاصطناعي هذا هو أداة تعليمية واستقصائية مساعدة فقط، ولا يمكن اعتباره تشخيصاً طبياً نهائياً. الفحص السريري من قبل طبيب الجلدية وبواسطة المنظار الجلدي هو المرجعية الطبية الوحيدة المعتمدة للتشخيص وتحديد العلاج."
-                  : lang === "tr"
-                    ? "Bu yerel yapay zeka analiz modeli yalnızca eğitsel ve tarama amaçlı bir yardımcı araçtır. Kesin bir tıbbi tanı teşkil etmez. Teşhis ve tedavi planlaması için uzman bir dermatolog tarafından yapılacak klinik muayene yegane referanstır."
-                    : "This local AI classification model is designed strictly as an educational and screening assistant. It is NOT a definitive medical diagnosis. A clinical skin specialist review remains the absolute gold standard for diagnosis and treatment planning."
-                }
+                <div>
+                  {lang === "ar"
+                    ? "تحليل الذكاء الاصطناعي هذا هو أداة تعليمية واستقصائية مساعدة فقط، ولا يمكن اعتباره تشخيصاً طبياً نهائياً. تم تطوير هذه الأداة لتكون عوناً ومساعداً للأطباء لتسهيل عملهم الاستقصائي وليس لاستبدالهم؛ ويبقى القرار الطبي النهائي والكلمة الأخيرة دائماً للطبيب المعالج بصرف النظر عن نتائج التطبيق."
+                    : lang === "tr"
+                      ? "Bu yerel yapay zeka analiz modeli yalnızca eğitsel ve tarama amaçlı bir yardımcı araçtır. Kesin bir tıbbi tanı teşkil etmez. Bu araç, hekimlerin tanı iş akışına yardımcı olmak amacıyla geliştirilmiş olup, hekimlerin yerini almayı amaçlamaz. Nihai klinik karar, uygulamanın çıktısından bağımsız olarak her zaman tedaviyi yürüten hekime aittir."
+                      : "This local AI classification model is designed strictly as an educational and screening assistant. It is NOT a definitive medical diagnosis. This tool is built to assist clinicians in their diagnostic workflow, not to replace them. The final clinical decision always rests solely with the attending physician, regardless of the app's output."
+                  }
+                </div>
               </div>
             </div>
           )}
