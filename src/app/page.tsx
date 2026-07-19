@@ -275,11 +275,13 @@ export default function PortfolioPage() {
     <div className={`min-h-screen text-glow selection:bg-primary-container selection:text-on-primary-container clinical-bg break-words overflow-x-hidden ${lang === 'ar' ? 'font-cairo' : 'font-sans'}`}>
       
       {/* Navigation Header */}
-      <header className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-outline-variant/10">
+      <header className="fixed top-0 w-full z-50 bg-background/95 md:bg-background/80 md:backdrop-blur-xl border-b border-outline-variant/10">
         <nav className="flex justify-between items-center px-4 sm:px-6 md:px-12 py-4 w-full max-w-7xl mx-auto">
           <div className="flex items-center gap-3 min-w-0">
-            <div className="w-10 h-10 rounded-xl overflow-hidden border border-white/10 shrink-0">
-              <img src="/favicon.ico" alt="Dr. Osama Wraikat Logo" className="w-full h-full object-cover" />
+            <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
+              <svg className="w-5 h-5 text-primary" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"></path>
+              </svg>
             </div>
             <div className="font-serif text-lg md:text-xl font-bold tracking-tight text-white truncate">
               {lang === "ar" ? (
@@ -390,6 +392,7 @@ export default function PortfolioPage() {
                   className="w-full h-full object-cover rounded-2xl group-hover:scale-105 transition-transform duration-700" 
                   src="/skin_abstract.png" 
                   alt="Abstract Dermatology Art"
+                  loading="lazy"
                 />
               </div>
               <div className="absolute -bottom-6 -right-6 w-36 h-36 bg-primary/10 rounded-full blur-3xl pointer-events-none"></div>
@@ -529,6 +532,7 @@ export default function PortfolioPage() {
                     className="w-full h-full object-cover" 
                     src="/mole_closeup.png" 
                     alt="DermoAI Platform Preview"
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/40 to-transparent"></div>
                   <span className="absolute top-4 left-4 bg-primary-container/80 backdrop-blur-sm text-white text-[10px] font-bold tracking-widest uppercase px-3 py-1 rounded-full border border-white/10 font-mono">
@@ -563,6 +567,7 @@ export default function PortfolioPage() {
                     className="w-full h-full object-cover" 
                     src="/dermosce_showcase.png" 
                     alt="DermOSCE Platform Preview"
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/40 to-transparent"></div>
                   <span className="absolute top-4 left-4 bg-primary-container/80 backdrop-blur-sm text-white text-[10px] font-bold tracking-widest uppercase px-3 py-1 rounded-full border border-white/10 font-mono">
@@ -598,6 +603,7 @@ export default function PortfolioPage() {
                     className="w-full h-full object-cover" 
                     src="/skin_abstract.png" 
                     alt="Relum App Concept Visual"
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/40 to-transparent"></div>
                   <span className="absolute top-4 left-4 bg-secondary/80 backdrop-blur-sm text-on-secondary text-[10px] font-bold tracking-widest uppercase px-3 py-1 rounded-full border border-white/10 font-mono">
@@ -650,6 +656,7 @@ export default function PortfolioPage() {
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                       src={image} 
                       alt={title}
+                      loading="lazy"
                     />
                   </div>
                   <div className="p-6">
