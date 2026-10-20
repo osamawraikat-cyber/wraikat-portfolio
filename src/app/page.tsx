@@ -12,12 +12,12 @@ const translations = {
     btnBook: "Academic Inquiry",
     badge: "Jordan Royal Medical Services",
     heroTitle1: "Dr. Osama Alwreikat",
-    heroTitle2: "Dermatologist & Venereologist",
-    heroDesc: "Dermatology, venereology, and laser doctor serving in the Jordan Royal Medical Services. Graduated from Ankara Gülhane Military Medical Academy (GATA / SBU). Fluent in Arabic, English, and Turkish.",
+    heroTitle2: "Jordanian Board-Certified Dermatology & Venereology Specialist",
+    heroDesc: "Jordanian Board-certified specialist in dermatology and venereology serving in the Jordan Royal Medical Services. Graduated from Ankara Gülhane Military Medical Academy (GATA / SBU). Fluent in Arabic, English, and Turkish.",
     interests: ["Clinical Dermatology", "Dermato-Oncology", "Vitiligo Surgery", "Digital Health"],
     aboutTitle: "Academic & Clinical",
     aboutTitleAccent: "Background",
-    aboutDesc: "Dr. Osama Alwreikat (Osama Wraikat) was recruited as a military medical officer in 2010 at age 18, starting his medical training in the same year. He completed his medical education at the historic Gülhane Military Medical Academy (GATA, now SBU) in Ankara, Turkey. Today, he is a practicing dermatologist within the Jordan Royal Medical Services. Fluent in Arabic, English, and Turkish, his professional interest centers on advanced clinical diagnostics, medical education, and specialized dermatologic surgery.",
+    aboutDesc: "Dr. Osama Alwreikat (Osama Wraikat) was recruited as a military medical officer in 2010 at age 18, starting his medical training in the same year. He completed his medical education at the historic Gülhane Military Medical Academy (GATA, now SBU) in Ankara, Turkey. He is a Jordanian Board-certified specialist in dermatology and venereology, certified by the Jordan Medical Council, and practices within the Jordan Royal Medical Services. Fluent in Arabic, English, and Turkish, his professional interest centers on advanced clinical diagnostics, medical education, and specialized dermatologic surgery.",
     
     // Core Procedures & Skills
     skillsHeader: "Clinical Expertise & Advanced Procedures",
@@ -83,7 +83,7 @@ const translations = {
     workingHours: "Working Hours",
     workingHoursVal: "Sun – Thu: 8:00 AM – 4:00 PM",
     btnWhatsApp: "Send Email Inquiry",
-    footerDesc: "Dermatologist and medical officer dedicated to clinical precision, medical education, and specialized surgical dermatology.",
+    footerDesc: "Jordanian Board-certified dermatologist and medical officer dedicated to clinical precision, medical education, and specialized surgical dermatology.",
     footerNav: "Navigation",
     footerLegal: "Verification",
     footerNews: "Stay Updated",
@@ -97,12 +97,12 @@ const translations = {
     btnBook: "استفسار أكاديمي",
     badge: "الخدمات الطبية الملكية الاردنية",
     heroTitle1: "د. أسامة الوريكات",
-    heroTitle2: "طبيب جلدية وتناسلية وليزر",
-    heroDesc: "طبيب ممارس للأمراض الجلدية والتناسلية والليزر في الخدمات الطبية الملكية الاردنية. خريج أكاديمية غولهانة العسكرية (GATA) في أنقرة، تركيا. يتحدث العربية، الإنجليزية، والتركية.",
+    heroTitle2: "اختصاصي الأمراض الجلدية والتناسلية | البورد الأردني",
+    heroDesc: "اختصاصي الأمراض الجلدية والتناسلية، حاصل على شهادة البورد الأردني من المجلس الطبي الأردني، ويعمل في الخدمات الطبية الملكية الأردنية. خريج أكاديمية غولهانة العسكرية (GATA) في أنقرة، تركيا. يتحدث العربية، الإنجليزية، والتركية.",
     interests: ["أمراض جلدية", "أورام الجلد", "جراحة البهاق", "الابتكار الرقمي"],
     aboutTitle: "الخلفية الأكاديمية",
     aboutTitleAccent: "والسريرية",
-    aboutDesc: "تم تجنيد الدكتور أسامة الوريكات (أسامة وريكات) كضابط طبيب في الخدمات الطبية الملكية الاردنية في عام 2010 في سن 18 عاماً، وبدأ دراسته الطبية في نفس العام. حصل على درجة الطب من أكاديمية غولهانة الطبية العسكرية العريقة (GATA - وحالياً جامعة العلوم الصحية SBU) في أنقرة، تركيا. وهو طبيب ممارس للأمراض الجلدية في الخدمات الطبية الملكية الاردنية. يتحدث العربية والإنجليزية والتركية بطلاقة، ويتركز اهتمامه المهني على التشخيص السريري المتقدم، التعليم الطبي، وجراحة الجلد المتخصصة.",
+    aboutDesc: "تم تجنيد الدكتور أسامة الوريكات (أسامة وريكات) كضابط طبيب في الخدمات الطبية الملكية الاردنية في عام 2010 في سن 18 عاماً، وبدأ دراسته الطبية في نفس العام. حصل على درجة الطب من أكاديمية غولهانة الطبية العسكرية العريقة (GATA - وحالياً جامعة العلوم الصحية SBU) في أنقرة، تركيا. وهو اختصاصي أمراض جلدية وتناسلية حاصل على شهادة البورد الأردني من المجلس الطبي الأردني، ويعمل في الخدمات الطبية الملكية الأردنية. يتحدث العربية والإنجليزية والتركية بطلاقة، ويتركز اهتمامه المهني على التشخيص السريري المتقدم، التعليم الطبي، وجراحة الجلد المتخصصة.",
     
     // Core Procedures & Skills
     skillsHeader: "الخبرات السريرية والإجراءات الجراحية المتخصصة",
@@ -168,7 +168,7 @@ const translations = {
     workingHours: "أوقات الدوام الرسمي",
     workingHoursVal: "الأحد – الخميس: 8:00 صباحاً – 4:00 مساءً",
     btnWhatsApp: "إرسال استفسار عبر البريد",
-    footerDesc: "طبيب جلدية وضابط طبيب مكرس للتشخيص السريري الدقيق ورعاية المرضى عبر التعليم والابتكار الطبي والجراحي.",
+    footerDesc: "اختصاصي أمراض جلدية وتناسلية حاصل على البورد الأردني وضابط طبيب مكرس للتشخيص السريري الدقيق ورعاية المرضى عبر التعليم والابتكار الطبي والجراحي.",
     footerNav: "أقسام الموقع",
     footerLegal: "التحقق المهني",
     footerNews: "النشرة الطبية",
@@ -182,12 +182,12 @@ const translations = {
     btnBook: "Akademik İletişim",
     badge: "Ürdün Kraliyet Tıbbi Hizmetleri",
     heroTitle1: "Dr. Osama Alwreikat",
-    heroTitle2: "Dermatolog & Venerolog",
-    heroDesc: "Ürdün Kraliyet Tıbbi Hizmetleri bünyesinde görev yapan dermatoloji, veneroloji ve tıbbi lazer hekimi. Ankara Gülhane Askeri Tıp Akademisi (GATA / SBÜ) mezunu. Arapça, İngilizce ve Türkçe bilmektedir.",
+    heroTitle2: "Ürdün Dermatoloji ve Zührevi Hastalıklar Board Sertifikalı Uzmanı",
+    heroDesc: "Ürdün Tıp Konseyi tarafından verilen Ürdün Dermatoloji ve Zührevi Hastalıklar Board sertifikasına sahip uzman hekim; Ürdün Kraliyet Tıbbi Hizmetleri bünyesinde görev yapmaktadır. Ankara Gülhane Askeri Tıp Akademisi (GATA / SBÜ) mezunu. Arapça, İngilizce ve Türkçe bilmektedir.",
     interests: ["Klinik Dermatoloji", "Dermato-Onkoloji", "Vitiligo Cerrahisi", "Dijital Sağlık"],
     aboutTitle: "Akademik ve Klinik",
     aboutTitleAccent: "Özgeçmiş",
-    aboutDesc: "Dr. Osama Alwreikat (Osama Wraikat), 2010 yılında 18 yaşındayken askeri tıp subayı olarak göreve başladı ve aynı yıl tıp eğitimine başladı. Tıp eğitimini Ankara'daki tarihi Gülhane Askeri Tıp Akademisi'nde (GATA, şimdiki adıyla SBÜ) tamamladı. Şu anda Ürdün Kraliyet Tıbbi Hizmetleri bünyesinde dermatolog olarak görev yapmaktadır. Arapça, İngilizce ve Türkçe dillerine hakim olan Dr. Alwreikat, ileri düzey klinik teşhis, tıp eğitimi ve uzmanlaşmış dermatolojik cerrahiye odaklanmaktadır.",
+    aboutDesc: "Dr. Osama Alwreikat (Osama Wraikat), 2010 yılında 18 yaşındayken askeri tıp subayı olarak göreve başladı ve aynı yıl tıp eğitimine başladı. Tıp eğitimini Ankara'daki tarihi Gülhane Askeri Tıp Akademisi'nde (GATA, şimdiki adıyla SBÜ) tamamladı. Ürdün Tıp Konseyi tarafından verilen Ürdün Dermatoloji ve Zührevi Hastalıklar Board sertifikasına sahiptir ve Ürdün Kraliyet Tıbbi Hizmetleri bünyesinde uzman olarak görev yapmaktadır. Bu belge Türkiye’de uzmanlık denkliği anlamına gelmez. Arapça, İngilizce ve Türkçe dillerine hakim olan Dr. Alwreikat, ileri düzey klinik teşhis, tıp eğitimi ve uzmanlaşmış dermatolojik cerrahiye odaklanmaktadır.",
     
     // Core Procedures & Skills
     skillsHeader: "Klinik Deneyim ve Gelişmiş Uygulamalar",
@@ -407,6 +407,10 @@ export default function PortfolioPage() {
                 {t.aboutDesc}
               </p>
               
+              <div className="mb-6 rounded-xl border border-secondary/30 bg-surface-container px-4 py-3 text-sm text-on-surface-variant">
+                <span className="font-semibold text-secondary">{lang === "ar" ? "المؤهلات المهنية" : lang === "tr" ? "Mesleki yeterlilik" : "Professional credential"}</span>
+                <p className="mt-1">{lang === "ar" ? "البورد الأردني في الأمراض الجلدية والتناسلية — المجلس الطبي الأردني" : lang === "tr" ? "Dermatoloji ve Zührevi Hastalıklar alanında Ürdün Board Sertifikası — Ürdün Tıp Konseyi (Jordan Medical Council)" : "Jordanian Board in Dermatology & Venereology — Jordan Medical Council"}</p>
+              </div>
               {/* Language Tags & Education Badges */}
               <div className="flex flex-wrap gap-2.5 mb-8">
                 <span className="bg-surface-container border border-outline-variant/10 text-white px-3 py-1.5 rounded-lg text-xs font-medium">
