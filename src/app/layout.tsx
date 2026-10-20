@@ -21,14 +21,17 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "د. أسامة الوريكات | طبيب جلدية وتناسلية وليزر في عمان الأردن | Dr. Osama Alwreikat",
-  description: "د. أسامة الوريكات طبيب جلدية وتناسلية وليزر في الأردن، خريج أكاديمية غولهانة العسكرية (GATA) في أنقرة. متخصص في زراعة الخلايا الصبغية للبهاق وعلاج ندب حب الشباب.",
+  title: "د. أسامة الوريكات | اختصاصي جلدية وتناسلية وبورد أردني | Dr. Osama Alwreikat",
+  description: "د. أسامة الوريكات اختصاصي الأمراض الجلدية والتناسلية، حاصل على شهادة البورد الأردني من المجلس الطبي الأردني، خريج أكاديمية غولهانة العسكرية (GATA) في أنقرة. متخصص في زراعة الخلايا الصبغية للبهاق وعلاج ندب حب الشباب.",
   keywords: [
-    "اسامة الوريكات", "طبيب جلدية عمان", "دكتور جلدية ابو نصير", "زراعة الخلايا الصبغية للبهاق",
+    "اسامة الوريكات", "البورد الأردني جلدية", "اختصاصي جلدية وتناسلية", "طبيب جلدية عمان", "دكتور جلدية ابو نصير", "زراعة الخلايا الصبغية للبهاق",
     "علاج البهاق الاردن", "علاج ندب حب الشباب عمان", "تقطيع الندبات عمان", "حقن البوتوكس عمان",
     "الخدمات الطبية الملكية", "أكاديمية غولهانة العسكرية", "Dr Osama Alwreikat", "Dr Osama Wraikat",
-    "dermatologist amman", "vitiligo surgery jordan", "melanocyte transplant jordan", "GATA medical graduate"
+    "Jordanian Board certified dermatologist", "dermatologist amman", "vitiligo surgery jordan", "melanocyte transplant jordan", "GATA medical graduate"
   ],
+  other: {
+    "profile:username": "Dr. Osama Alwreikat",
+  },
   icons: {
     icon: "/favicon.ico",
   }
