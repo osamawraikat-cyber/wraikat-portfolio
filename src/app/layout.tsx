@@ -21,6 +21,17 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.wraikat.com"),
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "profile",
+    url: "https://www.wraikat.com/",
+    siteName: "Dr. Osama Alwreikat | د. أسامة الوريكات",
+    title: "د. أسامة الوريكات | اختصاصي الأمراض الجلدية والتناسلية - البورد الأردني",
+    description: "الموقع المهني للدكتور أسامة الوريكات، اختصاصي الأمراض الجلدية والتناسلية والحاصل على البورد الأردني.",
+    locale: "ar_JO",
+  },
+  robots: { index: true, follow: true },
   title: "د. أسامة الوريكات | اختصاصي جلدية وتناسلية وبورد أردني | Dr. Osama Alwreikat",
   description: "د. أسامة الوريكات اختصاصي الأمراض الجلدية والتناسلية، حاصل على شهادة البورد الأردني من المجلس الطبي الأردني، خريج أكاديمية غولهانة العسكرية (GATA) في أنقرة. متخصص في زراعة الخلايا الصبغية للبهاق وعلاج ندب حب الشباب.",
   keywords: [
@@ -37,6 +48,62 @@ export const metadata: Metadata = {
   }
 };
 
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://www.wraikat.com/#person",
+      "name": "Dr. Osama Alwreikat",
+      "alternateName": [
+        "د. أسامة الوريكات",
+        "Osama Wraikat"
+      ],
+      "url": "https://www.wraikat.com/",
+      "jobTitle": "Jordanian Board-Certified Dermatology and Venereology Specialist",
+      "knowsAbout": [
+        "Dermatology",
+        "Venereology",
+        "Vitiligo surgery",
+        "Medical education"
+      ],
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Jordan Royal Medical Services"
+      },
+      "alumniOf": {
+        "@type": "EducationalOrganization",
+        "name": "Gülhane Military Medical Academy"
+      },
+      "hasCredential": {
+        "@type": "EducationalOccupationalCredential",
+        "name": "Jordanian Board in Dermatology and Venereology",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Jordan Medical Council"
+        }
+      },
+      "sameAs": [
+        "https://osaraclinics.com/doctors/dr-osama-alwreikat"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.wraikat.com/#website",
+      "url": "https://www.wraikat.com/",
+      "name": "Dr. Osama Alwreikat — Professional Portfolio",
+      "inLanguage": [
+        "ar",
+        "en",
+        "tr"
+      ],
+      "about": {
+        "@id": "https://www.wraikat.com/#person"
+      }
+    }
+  ]
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -47,7 +114,7 @@ export default function RootLayout({
       lang="ar"
       className={`${cairo.variable} ${playfair.variable} ${inter.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col"><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />{children}</body>
     </html>
   );
 }
